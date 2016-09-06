@@ -441,7 +441,7 @@ class StrategyBase:
                     elif result[0] == 'set_host_facts':
                         facts = result[4]
                         for target_host in host_list:
-                            if task.action == 'set_fact':
+                            if task.action in C.DEFAULT_FACTS_ACTIONS:
                                 self._variable_manager.set_nonpersistent_facts(target_host, facts.copy())
                             else:
                                 self._variable_manager.set_host_facts(target_host, facts.copy())
